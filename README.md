@@ -1,8 +1,5 @@
 # Pokemon-arkisto
-
-
-### Ominaisuudet
-* Käyttäjä voi rekisteröytyä
-* Hakuehdoilla voi löytää Pokemoneja
-* Käyttäjä voi lisätä Pokemoneja omalle tilille
+#### [Sovellus löytyy tästä](https://pokemonarkisto.herokuapp.com/) 
+## Käyttötapaukset:
+#### [Löytyy tästä](https://github.com/ArkMus/Pokemon-arkisto/blob/master/documentation/user_stories.md)
 
