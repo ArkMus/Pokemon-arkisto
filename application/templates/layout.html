@@ -18,9 +18,11 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('index') }}">Aloitussivulle</a>
           </li>
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('all_collections') }}">Kokoelma</a>
           </li>
+          {% endif %}
         </ul>
         <div class="form-inline mt-2 mt-md-0">
     {% if current_user.is_authenticated %}
