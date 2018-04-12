@@ -16,10 +16,10 @@ class Collections(Base):
         self.number = number
 
     @staticmethod
-    def find_users_collection():
+    def find_users_collection(done=0):
         stmt = text("SELECT collections.name, collections.number "
         "FROM collections LEFT JOIN account ON account.id = collections.account_id "
-        "WHERE collections.account_id = 1;")
+        "WHERE collections.account_id = 1;").params(done=done)
         res = db.engine.execute(stmt)
 
         response = []
