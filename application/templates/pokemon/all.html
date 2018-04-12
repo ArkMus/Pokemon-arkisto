@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th></th>
+    </tr>
+    {% for pokemon in pokemons %}
+    <tr>
+      <td>
+        # {{ pokemon.number }} {{ pokemon.name }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

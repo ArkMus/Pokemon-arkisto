@@ -22,6 +22,11 @@ from application.tasks import views
 from application.auth import models
 from application.auth import views
 
+from application.pokemon import models
+from application.pokemon import views
+
+from application.collections import models
+from application.collections import views
 
 # login
 from application.auth.models import User

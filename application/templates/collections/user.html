@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<p>Minun kokoelmani:</p>
+
+{% if user_collection is defined %}
+  
+<ul>
+  {% for pokemon in user_collection %}
+  <li>
+    # {{ pokemon.name }} {{ pokemon.number }} 
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock %}
