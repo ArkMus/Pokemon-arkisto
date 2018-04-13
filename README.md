@@ -1,5 +1,6 @@
 # Pokemon-arkisto
 #### [Sovellus löytyy tästä](https://pokemonarkisto.herokuapp.com/) 
+### (Voi testata kokoelma ominaisuutta käyttäjällä: username: "test", password: "test")
 ## Käyttötapaukset:
 #### [Löytyy tästä](https://github.com/ArkMus/Pokemon-arkisto/blob/master/documentation/user_stories.md)
 
