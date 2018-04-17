@@ -29,6 +29,8 @@
     <a href="{{ url_for('auth_logout') }}">Kirjautunut nimellä {{ current_user.name }}  --  Kirjaudu ulos</a>
     {% else %}
     <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+    <a>    --    </a>
+    <a href="{{ url_for('auth_register') }}">Rekisteröidy</a>
     {% endif %}
         </div>
 </div>

@@ -9,10 +9,13 @@ class User(Base):
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    tasks = db.relationship("Task", backref='account', lazy=True)
+    #database = db.relationship("User", backref='account', lazy=True)
   
-    def __init__(self, name):
+    def __init__(self, name, username, password):
         self.name = name
+        self.username = username
+        self.password = password
+
 
     def get_id(self):
         return self.id
@@ -25,3 +28,4 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+        
