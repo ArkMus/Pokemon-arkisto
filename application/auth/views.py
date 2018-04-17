@@ -37,7 +37,8 @@ def auth_register():
     form = RegisterForm(request.form)
 
     if not form.validate():
-        return render_template("auth/registerform.html", form = form)
+        return render_template("auth/registerform.html", form = form, 
+        error = "Password has to be at least 8 characters")
 
     que = User.query.filter_by(username = form.username.data).first()
     if not que:
