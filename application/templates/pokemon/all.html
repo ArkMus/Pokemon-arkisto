@@ -3,7 +3,7 @@
 {% block body %}
   <table>
     <tr>
-      <th></th>
+      <a href="{{ url_for('new_form') }}">Lisää uusi pokemon</a>
     </tr>
     {% for pokemon in pokemons %}
     <tr>

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('pokemon_new') }}">
+  
+<table>
+    <tr>
+        <td>
+      {{ form.name.label }}
+        </td>
+        <td>
+      {{ form.name }}
+        </td>
+    </tr>
+    <tr>
+        <td>
+      {{ form.number.label }}
+        </td>
+        <td>
+      {{ form.number }}
+        </td>
+    </tr>
+  <tr>
+  <td colspan="2">
+  <input type="submit" value="Add a new pokemon"/>
+  </td>
+</tr>
+</form>
+{% endblock %}
