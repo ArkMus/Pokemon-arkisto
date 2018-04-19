@@ -2,9 +2,11 @@
 
 {% block body %}
   <table>
+    {% if isAdmin %}
     <tr>
       <a href="{{ url_for('new_form') }}">Lisää uusi pokemon</a>
     </tr>
+    {% endif %}
     {% for pokemon in pokemons %}
     <tr>
       <td>
