@@ -7,6 +7,9 @@ from application.roles.models import roles
 
 
 def isAdmin():
+    if not current_user.is_authenticated:
+        return False
+
     role = roles.query.filter_by(account_id = current_user.id).first()
     
     if role and role.role == "ADMIN":
