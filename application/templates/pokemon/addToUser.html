@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('add_to_user', pokeid=pokeid) }}">
+<table>
+    <r>
+        Haluatko lisätä: # {{ pokemon.number }} {{ pokemon.name }} kokoelmaasi ? 
+    </r>
+  <tr>
+  <td colspan="2">
+  <input type="submit" value="Lisää pokemon"/>
+  </td>
+</tr>
+</form>
+{% endblock %}

@@ -5,6 +5,7 @@ from application import app, db
 from application.pokemon.models import Pokemons
 from application.pokemon.forms import PokeForm
 from application.roles.views import isAdmin
+from application.collections.models import Collections
 
 
 @app.route("/pokemon/all/", methods=["GET"])
@@ -75,3 +76,18 @@ def delete_pokemon(pokeid):
 
     return redirect(url_for("all_pokemon"))
 
+
+@app.route("/pokemon/addToUser/", methods=["GET", "POST"])
+@app.route("/pokemon/addToUser/<pokeid>", methods=["GET", "POST"])
+@login_required
+def add_to_user(pokeid):
+    pokeToAdd = Pokemons.query.filter_by(id=pokeid).first()
+
+    if request.method == "GET":
+        return render_template("pokemon/addToUser.html", pokeid = pokeid, pokemon=pokeToAdd)    
+    
+    pokeAdd = Collections(pokeToAdd.name, pokeToAdd.number, current_user.id) 
+
+    db.session().add(pokeAdd)
+    db.session().commit()
+    return redirect(url_for("all_pokemon"))

@@ -11,9 +11,10 @@ class Collections(Base):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
-    def __init__(self, name, number):
+    def __init__(self, name, number, account_id):
         self.name = name
         self.number = number
+        self.account_id = account_id
 
     @staticmethod
     def find_users_collection(id, done=0):
