@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('edit_pokemon') }}">
+<form method="POST" action="{{ url_for('edit_pokemon', pokeid=pokeid) }}">
 <table>
     <r>
-        Muokkaa: # {{ pokemon.number }} {{ pokemon.name }} 
+        Muokkaa: # {{ pokemon.number }} {{ pokemon.name }} {{ pokeid }}
     </r>
     <tr>
         <td>

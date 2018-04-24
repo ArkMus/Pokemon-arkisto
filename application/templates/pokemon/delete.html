@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('delete_pokemon') }}">
+<form method="POST" action="{{ url_for('delete_pokemon', pokeid=pokeid) }}">
 <table>
     <r>
         Haluatko poistaa: # {{ pokemon.number }} {{ pokemon.name }} ? 

@@ -33,7 +33,8 @@ def pokemon_new():
 
 @app.route("/pokemon/edit/", methods=["GET", "POST"])
 @app.route("/pokemon/edit/<pokeid>", methods=["GET", "POST"])
-def edit_pokemon(pokeid=Pokemons.id):
+def edit_pokemon(pokeid):
+
     pokeToEdit = Pokemons.query.filter_by(id=pokeid).first() 
 
     if request.method == "GET":
@@ -47,7 +48,7 @@ def edit_pokemon(pokeid=Pokemons.id):
         return redirect(url_for("all_pokemon"))
 
     form = PokeForm(request.form)
-    
+
     pokeToEdit.name = form.name.data
     pokeToEdit.number = form.number.data
     
@@ -57,20 +58,20 @@ def edit_pokemon(pokeid=Pokemons.id):
 
 @app.route("/pokemon/delete/", methods=["GET", "POST"])
 @app.route("/pokemon/delete/<pokeid>", methods=["GET", "POST"])
-def delete_pokemon(pokeid=Pokemons.id):
+def delete_pokemon(pokeid):
     pokeToDelete = Pokemons.query.filter_by(id=pokeid).first()
-    
+
     if request.method == "GET":
         if isAdmin():        
             return render_template("pokemon/delete.html", pokeid = pokeid, pokemon=pokeToDelete)
         else:
             return redirect(url_for("all_pokemon"))
-        
     
     if not isAdmin():
         return redirect(url_for("all_pokemon"))
-    
-    Pokemons.query.filter_by(id=pokeToDelete.id).delete()
+
+    db.session.delete(pokeToDelete)
     db.session().commit()
 
     return redirect(url_for("all_pokemon"))
+
