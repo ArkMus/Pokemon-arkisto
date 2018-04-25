@@ -101,7 +101,7 @@ def pokemon_search():
     fname = form.name.data
     if not fname:
         fname = ""
-    fnumber = str(form.number.data)
+    fnumber = form.number.data
     if fnumber == 'None':
         fnumber = ''
 
