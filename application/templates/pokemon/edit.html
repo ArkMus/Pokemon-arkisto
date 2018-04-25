@@ -4,7 +4,7 @@
 <form method="POST" action="{{ url_for('edit_pokemon', pokeid=pokeid) }}">
 <table>
     <r>
-        Muokkaa: # {{ pokemon.number }} {{ pokemon.name }}
+        Edit: # {{ pokemon.number }} {{ pokemon.name }}
     </r>
     <tr>
         <td>
@@ -24,7 +24,7 @@
     </tr>
   <tr>
   <td colspan="2">
-  <input type="submit" value="Muokkaa pokemon"/>
+  <input type="submit" value="Edit pokemon"/>
   </td>
 </tr>
 </form>

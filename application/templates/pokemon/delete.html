@@ -4,11 +4,11 @@
 <form method="POST" action="{{ url_for('delete_pokemon', pokeid=pokeid) }}">
 <table>
     <r>
-        Haluatko poistaa: # {{ pokemon.number }} {{ pokemon.name }} ? 
+        Do you want to delete: # {{ pokemon.number }} {{ pokemon.name }} ? 
     </r>
   <tr>
   <td colspan="2">
-  <input type="submit" value="Poista pokemon"/>
+  <input type="submit" value="Delete pokemon"/>
   </td>
 </tr>
 </form>

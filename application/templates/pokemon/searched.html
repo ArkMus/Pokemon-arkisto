@@ -2,14 +2,8 @@
 
 {% block body %}
   <table>
-    {% if isAdmin %}
-    <tr>
-      <a href="{{ url_for('pokemon_new') }}">Add a new pokemon</a>
-    </tr>
-    <p></p>
-    {% endif %}
     <a href="{{ url_for('pokemon_search') }}">Search for a pokemon</a>
-    {% for pokemon in pokemons %}
+    {% for pokemon in searched_pokes %}
     <tr>
       <td>
         # {{ pokemon.number }} {{ pokemon.name }} 

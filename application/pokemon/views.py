@@ -91,3 +91,22 @@ def add_to_user(pokeid):
     db.session().add(pokeAdd)
     db.session().commit()
     return redirect(url_for("all_pokemon"))
+
+@app.route("/pokemon/search", methods=["GET", "POST"])
+def pokemon_search():
+    if request.method == "GET":
+        return render_template("pokemon/search.html", form = PokeForm())
+
+    form = PokeForm(request.form)
+    fname = form.name.data
+    if not fname:
+        fname = ""
+    fnumber = str(form.number.data)
+    if not fnumber:
+        fnumber = ""
+
+    search = Pokemons.query.filter(Pokemons.name.like('%'+fname+'%')).\
+    filter(Pokemons.number.like('%'+fnumber+'%')).order_by('number').all()
+
+
+    return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin)

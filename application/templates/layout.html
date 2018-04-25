@@ -16,21 +16,21 @@
 <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('index') }}">Aloitussivulle</a>
+            <a class="nav-link" href="{{ url_for('index') }}">Homepage</a>
           </li>
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('all_collections') }}">Kokoelma</a>
+            <a class="nav-link" href="{{ url_for('all_collections') }}">Collection</a>
           </li>
           {% endif %}
         </ul>
         <div class="form-inline mt-2 mt-md-0">
     {% if current_user.is_authenticated %}
-    <a href="{{ url_for('auth_logout') }}">Kirjautunut nimellä {{ current_user.name }}  --  Kirjaudu ulos</a>
+    <a href="{{ url_for('auth_logout') }}">Signed in as {{ current_user.name }}  --  Sign out</a>
     {% else %}
-    <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+    <a href="{{ url_for('auth_login') }}">Sign in</a>
     <a>    --    </a>
-    <a href="{{ url_for('auth_register') }}">Rekisteröidy</a>
+    <a href="{{ url_for('auth_register') }}">Register</a>
     {% endif %}
         </div>
 </div>
