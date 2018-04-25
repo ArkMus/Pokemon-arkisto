@@ -102,11 +102,11 @@ def pokemon_search():
     if not fname:
         fname = ""
     fnumber = str(form.number.data)
-    if not fnumber:
-        fnumber = ""
+    if fnumber == 'None':
+        fnumber = ''
 
     search = Pokemons.query.filter(Pokemons.name.like('%'+fname+'%')).\
     filter(Pokemons.number.like('%'+fnumber+'%')).order_by('number').all()
 
 
-    return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin)
+    return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin())
