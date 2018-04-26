@@ -4,6 +4,7 @@ from flask_login import login_user, logout_user
 from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm, RegisterForm
+from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -13,8 +14,12 @@ def auth_login():
     form = LoginForm(request.form)
     # mahdolliset validoinnit
 
-    user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
+    user = User.query.filter_by(username=form.username.data).first()
     
+    if not check_password_hash(user.password, form.password.data):
+        return render_template("auth/loginform.html", form = form,
+                                error = "Wrong password")
+
     if not user:
         return render_template("auth/loginform.html", form = form,
                                 error = "No such username or password")
@@ -42,7 +47,7 @@ def auth_register():
 
     que = User.query.filter_by(username = form.username.data).first()
     if not que:
-        new_User = User(name = form.name.data, username = form.username.data, password = form.password.data)
+        new_User = User(name = form.name.data, username = form.username.data, password = generate_password_hash(form.password.data))
         db.session().add(new_User)
         db.session().commit()
         return redirect(url_for("auth_login"))
