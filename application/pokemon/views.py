@@ -10,7 +10,7 @@ import sys
 
 @app.route("/pokemon/all/", methods=["GET"])
 def all_pokemon():
-    return render_template("pokemon/all.html", pokemons=Pokemons.query.order_by('cast(number as unsigned)').all(), isAdmin=isAdmin())
+    return render_template("pokemon/all.html", pokemons=Pokemons.query.order_by('cast(number as Integer)').all(), isAdmin=isAdmin())
 
 
 @app.route("/pokemon/new", methods=["GET", "POST"])
@@ -103,7 +103,7 @@ def pokemon_search():
 
 
     search = Pokemons.query.filter(Pokemons.name.like(fname)).\
-    filter(Pokemons.number.like(fnumber)).order_by('cast(number as unsigned)').all()
+    filter(Pokemons.number.like(fnumber)).order_by('cast(number as Integer)').all()
 
 
     return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin())
