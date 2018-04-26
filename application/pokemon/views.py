@@ -6,7 +6,7 @@ from application.pokemon.models import Pokemons
 from application.pokemon.forms import PokeForm
 from application.roles.views import isAdmin
 from application.collections.models import Collections
-
+import sys
 
 @app.route("/pokemon/all/", methods=["GET"])
 def all_pokemon():
@@ -98,15 +98,12 @@ def pokemon_search():
         return render_template("pokemon/search.html", form = PokeForm())
 
     form = PokeForm(request.form)
-    fname = form.name.data
-    if not fname:
-        fname = ""
-    fnumber = form.number.data
-    if fnumber == 'None':
-        fnumber = ''
+    fname = "%"+form.name.data+"%"
+    fnumber = "%"+form.number.data+"%"
 
-    search = Pokemons.query.filter(Pokemons.name.like('%'+fname+'%')).\
-    filter(Pokemons.number.like('%'+fnumber+'%')).order_by('number').all()
+
+    search = Pokemons.query.filter(Pokemons.name.like(fname)).\
+    filter(Pokemons.number.like(fnumber)).order_by('number').all()
 
 
     return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin())
