@@ -7,7 +7,7 @@ from sqlalchemy.sql import text
 class Collections(Base):
 
     name = db.Column(db.String(144), nullable=False)
-    number = db.Column(db.Integer(), nullable=False)
+    number = db.Column(db.String(144), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
