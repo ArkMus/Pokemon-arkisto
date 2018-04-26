@@ -103,7 +103,7 @@ def pokemon_search():
 
 
     search = Pokemons.query.filter(Pokemons.name.like(fname)).\
-    filter(Pokemons.number.like(fnumber)).order_by('number').all()
+    filter(Pokemons.number.like(fnumber)).order_by('cast(number as unsigned)').all()
 
 
     return render_template("pokemon/searched.html", searched_pokes = search, isAdmin=isAdmin())
