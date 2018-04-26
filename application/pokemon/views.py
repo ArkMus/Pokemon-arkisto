@@ -10,7 +10,7 @@ import sys
 
 @app.route("/pokemon/all/", methods=["GET"])
 def all_pokemon():
-    return render_template("pokemon/all.html", pokemons=Pokemons.query.order_by('number').all(), isAdmin=isAdmin())
+    return render_template("pokemon/all.html", pokemons=Pokemons.query.order_by('cast(number as unsigned)').all(), isAdmin=isAdmin())
 
 
 @app.route("/pokemon/new", methods=["GET", "POST"])
