@@ -8,14 +8,14 @@ class Collections(Base):
 
     name = db.Column(db.String(144), nullable=False)
     number = db.Column(db.String(144), nullable=False)
-    caught = db.Column(db.Boolean, nullable=False)
+    caught = db.Column(db.Integer(), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable=False)
 
     def __init__(self, name, number, account_id):
         self.name = name
         self.number = number
-        self.caught = False
+        self.caught = 0
         self.account_id = account_id
 
     @staticmethod
@@ -33,14 +33,14 @@ class Collections(Base):
 
     @staticmethod
     def how_many_caught(id, done=0):
-        stmt = text("SELECT count(collections.caught) "
+        stmt = text("SELECT count(*) "
         "FROM collections LEFT JOIN account ON account.id = collections.account_id "
-        "WHERE collections.caught = t AND collections.account_id = :id;").params(done=done, id=id)
+        "WHERE collections.caught = 1 AND collections.account_id = :id;").params(done=done, id=id)
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"count":row[0]})
+            response.append({row[0]})
 
         return response
 

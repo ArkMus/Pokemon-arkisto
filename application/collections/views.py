@@ -13,7 +13,7 @@ def all_collections():
 @app.route("/collections/user/<pokeid>/", methods=["POST"])
 def pokemon_set_caught(pokeid):
     poke = Collections.query.filter_by(id=pokeid).first()
-    poke.caught = True
+    poke.caught = 1
     db.session().commit()
 
     return redirect(url_for("all_collections"))
