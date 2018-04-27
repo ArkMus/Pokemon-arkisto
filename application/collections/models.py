@@ -35,7 +35,7 @@ class Collections(Base):
     def how_many_caught(id, done=0):
         stmt = text("SELECT count(collections.caught) "
         "FROM collections LEFT JOIN account ON account.id = collections.account_id "
-        "WHERE collections.caught = 1 AND collections.account_id = :id;").params(done=done, id=id)
+        "WHERE collections.caught = t AND collections.account_id = :id;").params(done=done, id=id)
         res = db.engine.execute(stmt)
 
         response = []

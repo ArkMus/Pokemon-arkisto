@@ -9,11 +9,7 @@
 <ul>
   {% for pokemon in user_collection %}
   <li>
-    {% if pokemon.caught == 0 %}
-    # {{ pokemon.number }} {{ pokemon.name }}   |Not caught|
-    {% else %}
-    # {{ pokemon.number }} {{ pokemon.name }}   |Caught!|
-    {% endif %}
+    # {{ pokemon.number }} {{ pokemon.name }}   |Caught {{ pokemon.caught }}|
     <form method="POST" action="{{ url_for('pokemon_set_caught', pokeid=pokemon.id) }}">
       <input type="submit" value="Catch the pokemon!"/>
     </form>
