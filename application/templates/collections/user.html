@@ -16,7 +16,7 @@
     {% else %}
     # {{ pokemon.number }} {{ pokemon.name }}   |Caught!|
     {% endif %}
-    <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imgLink }} alt= {{ pokemon.name }}></a>
+    <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
     <form method="POST" action="{{ url_for('pokemon_set_caught', pokeid=pokemon.id) }}">
       <input type="submit" value="Catch the pokemon!"/>
     </form>

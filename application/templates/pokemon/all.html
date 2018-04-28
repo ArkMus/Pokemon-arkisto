@@ -13,7 +13,7 @@
     <tr>
       <td>
         # {{ pokemon.number }} {{ pokemon.name }} 
-        <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imgLink }} alt= {{ pokemon.name }}></a>
+        <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
         <a href="{{ url_for('add_to_user', pokeid=pokemon.id) }}">Add to your collection</a>
         {% if isAdmin %}
             <a href="{{ url_for('edit_pokemon', pokeid=pokemon.id) }}">|Edit|</a>
