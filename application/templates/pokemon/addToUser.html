@@ -4,7 +4,8 @@
 <form method="POST" action="{{ url_for('add_to_user', pokeid=pokeid) }}">
 <table>
     <r>
-        Do you want to: # {{ pokemon.number }} {{ pokemon.name }} to your collection ? 
+        Do you want to: # {{ pokemon.number }} {{ pokemon.name }} to your collection ?  
+        <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imgLink }} alt= {{ pokemon.name }}></a>
     </r>
   <tr>
   <td colspan="2">

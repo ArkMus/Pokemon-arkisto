@@ -86,7 +86,7 @@ def add_to_user(pokeid):
     if request.method == "GET":
         return render_template("pokemon/addToUser.html", pokeid = pokeid, pokemon=pokeToAdd)    
     
-    pokeAdd = Collections(pokeToAdd.name, pokeToAdd.number, current_user.id) 
+    pokeAdd = Collections(pokeToAdd.name, pokeToAdd.number, current_user.id, pokeToAdd.imgLink) 
 
     db.session().add(pokeAdd)
     db.session().commit()
