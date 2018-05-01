@@ -16,10 +16,17 @@
     {% else %}
     # {{ pokemon.number }} {{ pokemon.name }}   |Caught!|
     {% endif %}
-    <a href="http://pokemondb.net/pokedex/"{{ pokemon.name }}><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
+    <a><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
+    <a href="{{ url_for('remove_pokemon', pokeid=pokemon.id) }}">|Remove from collection|</a>
+    {% if pokemon.caught == 0 %}
     <form method="POST" action="{{ url_for('pokemon_set_caught', pokeid=pokemon.id) }}">
       <input type="submit" value="Catch the pokemon!"/>
     </form>
+    {% else %}
+    <form method="POST" action="{{ url_for('pokemon_set_caught', pokeid=pokemon.id) }}">
+        <input type="submit" value="Release the pokemon"/>
+    </form>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>

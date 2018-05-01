@@ -16,7 +16,7 @@
 <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('index') }}">Homepage</a>
+            <a class="nav-link" href="{{ url_for('all_pokemon') }}">List of all the pokemon</a>
           </li>
           {% if current_user.is_authenticated %}
           <li class="nav-item">

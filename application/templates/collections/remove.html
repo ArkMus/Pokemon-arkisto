@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('remove_pokemon', pokeid=pokeid) }}">
+<table>
+    <r>
+        Do you want to remove: # {{ pokemon.number }} {{ pokemon.name }} from your collection ?
+        <a><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a> 
+    </r>
+  <tr>
+  <td colspan="2">
+  <input type="submit" value="Remove pokemon"/>
+  </td>
+</tr>
+</form>
+{% endblock %}
