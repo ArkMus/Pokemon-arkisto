@@ -17,6 +17,7 @@
     # {{ pokemon.number }} {{ pokemon.name }}   |Caught!|
     {% endif %}
     <a><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
+    <a href="{{ url_for('rename_pokemon', pokeid=pokemon.id) }}">|Rename?|</a>
     <a href="{{ url_for('remove_pokemon', pokeid=pokemon.id) }}">|Remove from collection|</a>
     {% if pokemon.caught == 0 %}
     <form method="POST" action="{{ url_for('pokemon_set_caught', pokeid=pokemon.id) }}">

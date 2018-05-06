@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 
 from application import app, db
 from application.collections.models import Collections
-
+from application.pokemon.forms import PokeForm
 
 @app.route("/collections/user/", methods=["GET"])
 @login_required
@@ -32,6 +32,26 @@ def remove_pokemon(pokeid):
     
 
     db.session.delete(pokeToDelete)
+    db.session().commit()
+
+    return redirect(url_for("all_collections"))
+
+@app.route("/collections/rename/", methods=["GET", "POST"])
+@app.route("/pokemon/rename/<pokeid>", methods=["GET", "POST"])
+@login_required
+def rename_pokemon(pokeid):
+
+    pokeToRename = Collections.query.filter_by(id=pokeid).first() 
+    form = PokeForm()
+    form.name.data = pokeToRename.name
+    
+    if request.method == "GET":
+        return render_template("collections/rename.html", pokeid = pokeid, pokemon=pokeToRename, form=form)
+        
+    form = PokeForm(request.form)
+
+    pokeToRename.name = form.name.data
+    
     db.session().commit()
 
     return redirect(url_for("all_collections"))

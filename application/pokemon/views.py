@@ -37,10 +37,13 @@ def pokemon_new():
 def edit_pokemon(pokeid):
 
     pokeToEdit = Pokemons.query.filter_by(id=pokeid).first() 
-
+    form = PokeForm()
+    form.name.data = pokeToEdit.name
+    form.number.data = pokeToEdit.number
+    
     if request.method == "GET":
         if isAdmin():        
-            return render_template("pokemon/edit.html", pokeid = pokeid, pokemon=pokeToEdit, form = PokeForm())
+            return render_template("pokemon/edit.html", pokeid = pokeid, pokemon=pokeToEdit, form=form)
         else:
             return redirect(url_for("all_pokemon"))
         

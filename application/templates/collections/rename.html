@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('rename_pokemon', pokeid=pokeid) }}">
+<table>
+    <r>
+        Edit: # {{ pokemon.number }} {{ pokemon.name }}
+    </r>
+    <tr>
+        <td>
+      {{ form.name.label }}
+        </td>
+        <td>
+      {{ form.name }}
+        </td>
+    </tr>
+  <tr>
+      <a><img src= {{ pokemon.imglink }} alt= {{ pokemon.name }}></a>
+  <td colspan="2">
+  <input type="submit" value="Rename pokemon"/>
+  </td>
+</tr>
+</form>
+{% endblock %}
