@@ -1,6 +1,9 @@
 ### Kuvaus
 Projektin tavoitus olisi arkisto jota voisi käyttää samalla kuin pelaa alkuperäisiä pokemon pelejä. Käyttäjä voisi etsiä ja lisätä pokemoneja omaan kokoelmaan listasta joka sisältää kaikki alkuperäiset 151 pokemonta. Käyttäjän kokoelmassa voisi seurata mitkä pokemonit hän on saanut kiinni ja mitkä hän haluaisi saada.
 
+### "pokemons" ja "collections" taulujen "yhteys".
+Taulujen "pokemons" ja "collections" välillä ei ole oikeasti yhteys. Kuin käyttäjä lisää pokemonin hänen kokoelmaan, ohjelma oikeasti luo uuden "collections" olion, lisää perus tiedot siihen (esim. käyttäjän id) ja kopioi pokemonin kaikki tiedot ja lisää ne uuteen olioon.  
+
 ### CRUD tietokannassa 
 CRUD löytyy "collections" ja "pokemons" tauluista.
 
