@@ -6,15 +6,23 @@ CRUD löytyy "collections" ja "pokemons" tauluista.
 
 **collections**
 Create: Käyttäjä voi lisätä pokemoneja omaan kokoelmaan "List of all the pokemon sivulta.
+
 Read: Käyttäjälle näytetään oma kokoelma "Collection" sivulla.
+
 Update: Käyttäjä voi vaihtaa nimejä pokemonille jotka on hänen kokoelmassa.
+
 Delete: Käyttäjä voi poistaa pokemoneja hänen kokoelmasta.
+
 
 **pokemons**
 Create: Ylläpitäjä voi lisätä uusia pokemoneja.
+
 Read: Kuka vaan voi nähdä listan kaikeista pokemoneista.
+
 Update: Ylläpitäjä voi muokata pokemonien nimen ja numeron.
+
 Delete: Ylläpitäjä voi poistaa pokemoneja.
+
 
 ### CREATE TABLE -lauseet
 Jos tietokantaa ei ole olemassa, ohjelma luo ne käyttämällä seuraavat lauseet:
