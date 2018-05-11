@@ -5,6 +5,7 @@ Projektin tavoitus olisi arkisto jota voisi käyttää samalla kuin pelaa alkupe
 CRUD löytyy "collections" ja "pokemons" tauluista.
 
 **collections**
+
 Create: Käyttäjä voi lisätä pokemoneja omaan kokoelmaan "List of all the pokemon sivulta.
 
 Read: Käyttäjälle näytetään oma kokoelma "Collection" sivulla.
@@ -15,6 +16,7 @@ Delete: Käyttäjä voi poistaa pokemoneja hänen kokoelmasta.
 
 
 **pokemons**
+
 Create: Ylläpitäjä voi lisätä uusia pokemoneja.
 
 Read: Kuka vaan voi nähdä listan kaikeista pokemoneista.
